@@ -7,8 +7,8 @@ by_xcy
 
 header('Content-Type: text/html; charset=UTF-8');
 
-$APPID="wx0a29efa17e1a07ec";
-$APPSECRET="b3a96f70f66f77934f051619fc376b64";
+$APPID="";
+$APPSECRET="";
 
 $TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
 
