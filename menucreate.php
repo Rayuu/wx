@@ -7,8 +7,8 @@ by_xcy
 
 header('Content-Type: text/html; charset=UTF-8');
 
-$APPID="";
-$APPSECRET="";
+$APPID="wx0a29efa17e1a07ec";
+$APPSECRET="b3a96f70f66f77934f051619fc376b64";
 
 $TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
 
@@ -21,7 +21,7 @@ $ACC_TOKEN=$result->access_token;
 $data='{
 		 "button":[
 		 {
-			   "name":"hello",
+			   "name":"Hello",
 			   "sub_button":[
 				{
 				   "type":"click",
@@ -50,7 +50,7 @@ $data='{
 				}]
 		 },
 		  {
-			   "name":"world",
+			   "name":"World",
 			   "sub_button":[
 				{
 				   "type":"click",
@@ -77,6 +77,11 @@ $data='{
 			   
 			   "name":"!",
 			   "sub_button":[
+				{
+				   "type":"click",
+				   "name":"每日签到",
+				   "key":"每日签到"
+				},
 				{
 				   "type":"click",
 				   "name":"联系我们",
