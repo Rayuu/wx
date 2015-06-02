@@ -7,21 +7,15 @@ by_xcy
 
 header('Content-Type: text/html; charset=UTF-8');
 
-$APPID="wx0a29efa17e1a07ec";
-$APPSECRET="b3a96f70f66f77934f051619fc376b64";
+include("token.php");
 
-$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
-
-$json=file_get_contents($TOKEN_URL);
-$result=json_decode($json);
-
-$ACC_TOKEN=$result->access_token;
+$ACC_TOKEN=$token;
 
 
 $data='{
 		 "button":[
 		 {
-			   "name":"Hello",
+			   "name":"校园服务",
 			   "sub_button":[
 				{
 				   "type":"click",
@@ -50,7 +44,7 @@ $data='{
 				}]
 		 },
 		  {
-			   "name":"World",
+			   "name":"便捷生活",
 			   "sub_button":[
 				{
 				   "type":"click",
@@ -69,13 +63,13 @@ $data='{
 				},
 				{
 				   "type":"click",
-				   "name":"周边美食",
-				   "key":"周边美食"
+				   "name":"周边服务",
+				   "key":"周边服务"
 				}]
 		   },
 		   {
 			   
-			   "name":"!",
+			   "name":"点我",
 			   "sub_button":[
 				{
 				   "type":"click",

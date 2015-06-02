@@ -5,18 +5,11 @@
  2015/04/29  
  by_xcy
  */
-
 header('Content-Type: text/html; charset=UTF-8');
 
-$APPID="wxdxxxxxxxxxxxxxxx";
-$APPSECRET="96xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+include("token.php");
 
-$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
-
-$json=file_get_contents($TOKEN_URL);
-$result=json_decode($json);
-
-$ACC_TOKEN=$result->access_token;
+$ACC_TOKEN=$token;
 
 $MENU_URL="https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".$ACC_TOKEN;
 

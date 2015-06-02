@@ -1,2 +1,12 @@
 name: wx429
+
 version: 1
+cron:
+
+- description: back
+
+  url: back.php
+
+  schedule: "5 0 * * *"
+
+  timezone: Beijing

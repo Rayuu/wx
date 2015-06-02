@@ -1,19 +1,26 @@
 <?php
-/*************
-2015/05/09 获取token
-**************/
-function acc_token()
+
+
+$mmc=memcache_init();//初始化缓存
+$token=memcache_get($mmc,"token");//获取token
+if(empty($token))
 {
-	$APPID="";
-	$APPSECRET="";
-
-	$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
-
-	$json=file_get_contents($TOKEN_URL);
-	$result=json_decode($json);
-
-	$ACC_TOKEN=$result->access_token;
-	return $ACC_TOKEN;
-	
+$appid="wx0a29efa17e1a07ec";//填写appid
+$secret="b3a96f70f66f77934f051619fc376b64";//填写secret
+$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$a = curl_exec($ch);
+$strjson=json_decode($a);
+$access_token = $strjson->access_token;//获取access_token
+memcache_set($mmc,"token",$access_token,0,7200);//过期时间7200秒
+$token=memcache_get($mmc,"token");//获取token
 }
+
+
+
 ?>
+
+
+
