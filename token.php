@@ -5,8 +5,8 @@ $mmc=memcache_init();//初始化缓存
 $token=memcache_get($mmc,"token");//获取token
 if(empty($token))
 {
-$appid="wx0a29efa17e1a07ec";//填写appid
-$secret="b3a96f70f66f77934f051619fc376b64";//填写secret
+$appid="";//填写appid
+$secret="";//填写secret
 $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
